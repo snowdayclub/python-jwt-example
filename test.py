@@ -3,13 +3,13 @@ import jwt
 
 PUBKEY_FILE = 'jwt-key.pub'
 PRVKEY_FILE = 'jwt-key'
-#IPADDR_FILE = '/sys/class/net/wlan0/address'
+MACADDR_FILE = '/sys/class/net/wlan0/address'
 
 try:
-    ipaddr = open(IPADDR_FILE).read().strip()
-    claim = {"deviceId":ipaddr}
+    macaddr = open(MACADDR_FILE).read().strip()
+    claim = {"deviceId":macaddr}
 except:
-    claim = {"deviceId":'my IP address goes here'}
+    claim = {"deviceId":'my MAC address goes here'}
 
 print('claim:', claim)
 
